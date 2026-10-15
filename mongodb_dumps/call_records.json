@@ -1,0 +1,632 @@
+[
+  {
+    "_id": "rec_v-skanda",
+    "vendorId": "v-skanda",
+    "vendorName": "Skanda Commercial Motors",
+    "vendorRep": "Skanda",
+    "vendorPhone": "+1 (800) 419-7720",
+    "campaignId": "skanda-vehicle",
+    "campaignTitle": "Pre-Owned Commercial Fleet / 2nd Hand Vehicle",
+    "campaignCategory": "Vehicle Procurement",
+    "callDuration": "02:45",
+    "initialQuote": 12240,
+    "finalOffer": 8800,
+    "savings": 3440,
+    "savingsPct": 28.1,
+    "isLoss": false,
+    "financialStatus": "PROFIT / SAVINGS (议价盈利)",
+    "netPL": 3440,
+    "unit": "total",
+    "status": "Negotiation Concluded",
+    "dateRecorded": "2026-10-15T10:48:41.683Z",
+    "masterRecordingHash": "e9b4501a4e158d88e0b968a3556cf2d39891823759ad45bceb76814b7eskanda",
+    "transcript": [
+      {
+        "time": "00:10",
+        "speaker": "vendor",
+        "text": "Hello, thanks for calling Skanda. How can we support your organization today?",
+        "tactic": "Initial Greeting",
+        "sentiment": "neutral"
+      },
+      {
+        "time": "00:25",
+        "speaker": "agent",
+        "text": "This is VoxPact autonomous negotiator. We are procuring 2nd Hand Vehicle. What is your firmest proposal?",
+        "tactic": "Mission Scope Anchor",
+        "sentiment": "confident"
+      },
+      {
+        "time": "00:48",
+        "speaker": "vendor",
+        "text": "Our starting price is $11000, but for an enterprise commitment today we can discount to $12240.",
+        "tactic": "Direct Concession",
+        "sentiment": "receptive",
+        "isKeyEvidence": true,
+        "evidenceTitle": "Opening Quote & Initial Ambiguity",
+        "evidenceCitation": "Skanda quoted starting price with initial enterprise terms."
+      },
+      {
+        "time": "01:10",
+        "speaker": "agent",
+        "text": "Wait, $12,240 is actually higher than your base rate, and well above our strict allocation ceiling of $10,000. We have alternative quotes from regional dealers at $9,500 with certified inspection. If we wire full cash payment today, can you do $9,200 flat?",
+        "tactic": "The Flinch & Cash Anchor (-$3,040 demand)",
+        "sentiment": "unyielding"
+      },
+      {
+        "time": "01:34",
+        "speaker": "vendor",
+        "text": "I see what you mean, let me adjust the system calculations. $9,200 is below our wholesale intake, but if you take delivery before the end of the month and waive detailing, my floor is $9,800.",
+        "tactic": "Reluctant Second Concession ($9,800 Floor)",
+        "sentiment": "defensive"
+      },
+      {
+        "time": "01:58",
+        "speaker": "agent",
+        "text": "We can do $9,500 if you include a 6-month powertrain warranty and waive the documentation transfer fee. Send the confirmation right now and we authorize the deposit immediately.",
+        "tactic": "The Nibble & Final Price Squeeze ($9,500 + Warranty)",
+        "sentiment": "assertive"
+      },
+      {
+        "time": "02:22",
+        "speaker": "vendor",
+        "text": "Look, my manager wants this off our balance sheet today. If we settle at $8,800 flat with the 6-month warranty and zero documentation fees, we have a deal. I'm locking this into our system now.",
+        "tactic": "Final Extra $ Concession ($8,800 Won!)",
+        "sentiment": "eager",
+        "isKeyEvidence": true,
+        "evidenceTitle": "Final Squeezed Price at $8,800 with Warranty",
+        "evidenceCitation": "Skanda confirmed $8,800 flat with 6-month warranty and $0 doc fees."
+      }
+    ],
+    "concessionsWon": [
+      "Price reduced from $12,240 to $8,800 (-$3,440 cash savings)",
+      "Waived all dealer documentation and title transfer fees ($450 value)",
+      "Secured 6-month comprehensive powertrain warranty",
+      "Free pre-delivery vehicle detailing and safety certification"
+    ]
+  },
+  {
+    "_id": "rec_v-automax",
+    "vendorId": "v-automax",
+    "vendorName": "AutoMax Fleet Liquidators",
+    "vendorRep": "Dave Sterling",
+    "vendorPhone": "+1 (800) 922-1144",
+    "campaignId": "skanda-vehicle",
+    "campaignTitle": "Pre-Owned Commercial Fleet / 2nd Hand Vehicle",
+    "campaignCategory": "Vehicle Procurement",
+    "callDuration": "02:10",
+    "initialQuote": 11000,
+    "finalOffer": 13600,
+    "savings": -2600,
+    "savingsPct": -23.6,
+    "isLoss": true,
+    "financialStatus": "DEFICIT / LOSS (超支亏损)",
+    "netPL": -2600,
+    "unit": "total",
+    "status": "Negotiation Failed (Cost Overrun)",
+    "dateRecorded": "2026-10-15T10:48:41.683Z",
+    "masterRecordingHash": "e9b4501a4e158d88e0b968a3556cf2d39891823759ad45bceb76814b7eautomax",
+    "transcript": [
+      {
+        "time": "00:08",
+        "speaker": "vendor",
+        "text": "Dave Sterling here at AutoMax. If you want the fleet vehicle, standard list is $11,000 as-is.",
+        "tactic": "Aggressive Take-It-Or-Leave-It Anchor",
+        "sentiment": "unyielding"
+      },
+      {
+        "time": "00:20",
+        "speaker": "agent",
+        "text": "Dave, this is VoxPact procurement. We are authorized at $9,500 cash today. What is your bottom-line commitment?",
+        "tactic": "Direct Cash Anchor Attempt",
+        "sentiment": "confident"
+      },
+      {
+        "time": "00:42",
+        "speaker": "vendor",
+        "text": "Forget $9,500. Our mechanics just flagged unexpected chassis rust and title re-certification fees. The final price is $13,600 firm, plus a $1,200 handling fee. Take it or I sell it to another buyer in one hour.",
+        "tactic": "Negative Leverage & Surcharge Extortion (+$2,600 Overrun)",
+        "sentiment": "hostile",
+        "isKeyEvidence": true,
+        "evidenceTitle": "Cost Overrun Demand: $13,600 Firm (+$2,600 Deficit)",
+        "evidenceCitation": "AutoMax refused discount and demanded $13,600 (23.6% deficit above starting quote)."
+      },
+      {
+        "time": "01:05",
+        "speaker": "agent",
+        "text": "A $2,600 premium above list with zero warranty represents an unacceptable 23.6% negative margin deficit. VoxPact formally terminates discussions.",
+        "tactic": "Walk-Away Execution on Unfavorable Deficit Terms",
+        "sentiment": "unyielding"
+      }
+    ],
+    "concessionsWon": []
+  },
+  {
+    "_id": "rec_v-apex",
+    "vendorId": "v-apex",
+    "vendorName": "Apex Tensor Cloud",
+    "vendorRep": "Marcus Vance",
+    "vendorPhone": "+1 (415) 890-4421",
+    "campaignId": "gpu-cluster",
+    "campaignTitle": "Enterprise NVIDIA H100 Cloud Cluster",
+    "campaignCategory": "Cloud Infrastructure & AI",
+    "callDuration": "04:18",
+    "initialQuote": 188000,
+    "finalOffer": 142500,
+    "savings": 45500,
+    "savingsPct": 24.2,
+    "isLoss": false,
+    "financialStatus": "PROFIT / SAVINGS (议价盈利)",
+    "netPL": 546000,
+    "unit": "mo",
+    "status": "Negotiation Concluded",
+    "dateRecorded": "2026-10-15T10:48:41.683Z",
+    "masterRecordingHash": "e9b4501a4e158d88e0b968a3556cf2d39891823759ad45bceb76814b7eapex",
+    "transcript": [
+      {
+        "time": "00:08",
+        "speaker": "vendor",
+        "text": "Marcus Vance here, VP of Enterprise Sales at Apex Tensor. Who do I have the pleasure of speaking with?",
+        "tactic": "Greeting & Authority Anchor",
+        "sentiment": "neutral"
+      },
+      {
+        "time": "00:19",
+        "speaker": "agent",
+        "text": "Hello Marcus. This is VoxPact, autonomous procurement agent calling on behalf of our enterprise engineering leadership. We are finalizing our 64x NVIDIA H100 cluster allocation for Q4.",
+        "tactic": "Direct Identity & High-Volume Intent",
+        "sentiment": "confident"
+      },
+      {
+        "time": "00:32",
+        "speaker": "vendor",
+        "text": "Fantastic timing. For a full 64x H100 SXM5 8-way HGX cluster on dedicated InfiniBand, our standard annual commitment is $188,000 per month with a 2-month security deposit.",
+        "tactic": "High Anchor ($188k/mo + deposit)",
+        "sentiment": "assertive"
+      },
+      {
+        "time": "00:49",
+        "speaker": "agent",
+        "text": "Marcus, $188,000 per month is significantly outside our competitive bracket. Nebula Compute has already submitted a verified quote for $148,000 per month with zero deposit. If you want our business, we need to be anchored below $145,000 with zero deposit.",
+        "tactic": "The Flinch & Competitor Pincer ($148k Nebula anchor)",
+        "sentiment": "unyielding"
+      },
+      {
+        "time": "01:15",
+        "speaker": "vendor",
+        "text": "Nebula doesn't have non-blocking 3.2 Tbps Quantum-2 fabrics ready to provision immediately like we do. The absolute lowest corporate floor I can touch is $165,000.",
+        "tactic": "Defending Premium & First Concession ($165k)",
+        "sentiment": "defensive"
+      },
+      {
+        "time": "01:38",
+        "speaker": "agent",
+        "text": "We appreciate your fabric architecture, Marcus, but performance parity tests show Nebula meets our training benchmarks. We are authorized to sign an immediate 12-month contract today at $142,500 per month with Net-45 terms, or we execute with Nebula before close of business.",
+        "tactic": "Urgency + Walk-Away Ultimatum ($142,500 + Net-45)",
+        "sentiment": "strategic"
+      },
+      {
+        "time": "02:08",
+        "speaker": "vendor",
+        "text": "[Pause]... That is razor thin for an H100 allocation. Look, if you sign before 5 PM EST today so I can book this into our quarterly target, I will override desk pricing: $142,500 a month, waive the $25,000 onboarding fee, and give you Net-45.",
+        "tactic": "Major Concession Granted (Deal Locked $142,500)",
+        "sentiment": "eager",
+        "isKeyEvidence": true,
+        "evidenceTitle": "Final Price & Net-45 Concession",
+        "evidenceCitation": "$142,500/mo confirmed verbally; onboarding waived; Net-45 approved."
+      },
+      {
+        "time": "02:35",
+        "speaker": "agent",
+        "text": "We accept those commercial terms, provided you include a strict 99.99% uptime guarantee with 3x service credits for SLA breaches, plus zero egress charges up to 150TB.",
+        "tactic": "The Nibble (Adding SLA & Egress Rider)",
+        "sentiment": "assertive"
+      },
+      {
+        "time": "03:02",
+        "speaker": "vendor",
+        "text": "Agreed. 99.99% SLA with 3x credits and 150TB free egress is included in the rider. Send over your digital Term Sheet and I will countersign.",
+        "tactic": "Full Term Lock & Closing Affirmation",
+        "sentiment": "cooperative",
+        "isKeyEvidence": true,
+        "evidenceTitle": "SLA Guarantee & Free Egress Binding Proof",
+        "evidenceCitation": "Apex confirmed 99.99% SLA with 3x credits + 150TB/mo zero egress."
+      }
+    ],
+    "concessionsWon": [
+      "Monthly rate slashed from $188,000 to $142,500 (-$45,500/mo)",
+      "Waived $25,000 cluster onboarding & InfiniBand setup fee",
+      "Contractual 3x credit penalty for any downtime breaching 99.99%",
+      "Upgraded to Net-45 payment terms without personal guarantee"
+    ]
+  },
+  {
+    "_id": "rec_v-nebula",
+    "vendorId": "v-nebula",
+    "vendorName": "Nebula Compute Lab",
+    "vendorRep": "Dr. Sarah Chen",
+    "vendorPhone": "+1 (650) 412-9903",
+    "campaignId": "gpu-cluster",
+    "campaignTitle": "Enterprise NVIDIA H100 Cloud Cluster",
+    "campaignCategory": "Cloud Infrastructure & AI",
+    "callDuration": "03:42",
+    "initialQuote": 169000,
+    "finalOffer": 148000,
+    "savings": 21000,
+    "savingsPct": 12.4,
+    "isLoss": false,
+    "financialStatus": "PROFIT / SAVINGS (议价盈利)",
+    "netPL": 252000,
+    "unit": "mo",
+    "status": "Negotiation Concluded",
+    "dateRecorded": "2026-10-15T10:48:41.683Z",
+    "masterRecordingHash": "e9b4501a4e158d88e0b968a3556cf2d39891823759ad45bceb76814b7enebula",
+    "transcript": [
+      {
+        "time": "00:10",
+        "speaker": "vendor",
+        "text": "Nebula Compute Lab, this is Sarah Chen. Are you looking at our H100 GPU pods?",
+        "tactic": "Direct Technical Intake",
+        "sentiment": "neutral"
+      },
+      {
+        "time": "00:22",
+        "speaker": "agent",
+        "text": "Good morning Dr. Chen. VoxPact AI procurement here. We are sourcing 64x H100 SXM5 instances for high-throughput LLM training over 12 months. What is your firmest enterprise quote?",
+        "tactic": "Technical Requirement Clarification",
+        "sentiment": "confident"
+      },
+      {
+        "time": "00:41",
+        "speaker": "vendor",
+        "text": "For that cluster size, our baseline is $169,000 per month, which includes our specialized Slurm cluster manager and dedicated support.",
+        "tactic": "Initial Pricing Anchor ($169k)",
+        "sentiment": "neutral"
+      },
+      {
+        "time": "00:58",
+        "speaker": "agent",
+        "text": "Sarah, we have quotes from Tier-1 hyperscale partners offering sub-$145k with zero down. At $169k, Nebula is priced out. What flexibility does Nebula have on base node pricing?",
+        "tactic": "Competitive Anchor Pressure",
+        "sentiment": "strategic"
+      },
+      {
+        "time": "01:25",
+        "speaker": "vendor",
+        "text": "We are an agile boutique operator, so our margins are tighter, but because you are doing a full 12-month continuous run, I can bring it down to $148,000 a month and toss in 100TB of high-speed NVMe scratch storage.",
+        "tactic": "Concession & Storage Add-on ($148k)",
+        "sentiment": "receptive",
+        "isKeyEvidence": true,
+        "evidenceTitle": "Nebula $148,000 Floor & NVMe Perk",
+        "evidenceCitation": "Sarah Chen offered $148k/mo + 100TB NVMe storage."
+      },
+      {
+        "time": "01:52",
+        "speaker": "agent",
+        "text": "Can you eliminate the 10% advance deposit and match Net-45 payment terms?",
+        "tactic": "Working Capital Leverage",
+        "sentiment": "assertive"
+      },
+      {
+        "time": "02:18",
+        "speaker": "vendor",
+        "text": "Unfortunately our hardware leasing syndicate mandates a 10% deposit for non-credit-rated buyers, though we can do Net-30 for recurring billings.",
+        "tactic": "Structural Limit Reached",
+        "sentiment": "firm"
+      }
+    ],
+    "concessionsWon": [
+      "Rate reduced from $169,000 to $148,000/mo",
+      "Free 100TB NVMe scratch storage tier included",
+      "Priority direct engineer Slack channel access"
+    ]
+  },
+  {
+    "_id": "rec_v-hyperion",
+    "vendorId": "v-hyperion",
+    "vendorName": "Hyperion Infrastructure",
+    "vendorRep": "Derek Croft",
+    "vendorPhone": "+1 (212) 779-3100",
+    "campaignId": "gpu-cluster",
+    "campaignTitle": "Enterprise NVIDIA H100 Cloud Cluster",
+    "campaignCategory": "Cloud Infrastructure & AI",
+    "callDuration": "03:15",
+    "initialQuote": 195000,
+    "finalOffer": 162000,
+    "savings": 33000,
+    "savingsPct": 16.9,
+    "isLoss": false,
+    "financialStatus": "PROFIT / SAVINGS (议价盈利)",
+    "netPL": 396000,
+    "unit": "mo",
+    "status": "Negotiation Concluded",
+    "dateRecorded": "2026-10-15T10:48:41.683Z",
+    "masterRecordingHash": "e9b4501a4e158d88e0b968a3556cf2d39891823759ad45bceb76814b7ehyperion",
+    "transcript": [
+      {
+        "time": "00:15",
+        "speaker": "vendor",
+        "text": "Derek Croft at Hyperion. You're calling about enterprise GPU clusters. Our list price for 64 units is $195,000 a month.",
+        "tactic": "High Corporate Rack Rate",
+        "sentiment": "neutral"
+      },
+      {
+        "time": "00:30",
+        "speaker": "agent",
+        "text": "Derek, your list rate of $195k is nearly 35% above the prevailing market index. We are concluding deals with Apex and Nebula today. Give us your bottom-line commitment.",
+        "tactic": "Direct Reality Check & Competitive Pressure",
+        "sentiment": "assertive"
+      },
+      {
+        "time": "00:55",
+        "speaker": "vendor",
+        "text": "I can run a special promotion for new clients bringing it to $162,000 per month. But you must note our standard master service agreement applies.",
+        "tactic": "Discount with Hidden Contract Trap",
+        "sentiment": "cautious"
+      },
+      {
+        "time": "01:20",
+        "speaker": "agent",
+        "text": "What are the specific renewal and egress terms in that master service agreement?",
+        "tactic": "Contract Clause Interrogation",
+        "sentiment": "analytical"
+      },
+      {
+        "time": "01:45",
+        "speaker": "vendor",
+        "text": "Well, clause 14 stipulates standard 3-year auto-renewal if written notice is not submitted 90 days prior to contract expiration, and network egress is billed at $0.05 per gigabyte.",
+        "tactic": "Revealing 3-Year Lock-in & Egress Trap",
+        "sentiment": "evasive",
+        "isKeyEvidence": true,
+        "evidenceTitle": "Trap Uncovered: 36-Month Rollover & $0.05 Egress",
+        "evidenceCitation": "Derek Croft confirmed 90-day auto-renewal for 3 full years & high egress rates."
+      }
+    ],
+    "concessionsWon": [
+      "Initial quote dropped from $195,000 to $162,000/mo"
+    ]
+  },
+  {
+    "_id": "rec_v-titan-spot",
+    "vendorId": "v-titan-spot",
+    "vendorName": "Titan Silicon Spot Exchange",
+    "vendorRep": "Garrison Vance",
+    "vendorPhone": "+1 (212) 890-9988",
+    "campaignId": "gpu-cluster",
+    "campaignTitle": "Enterprise NVIDIA H100 Cloud Cluster",
+    "campaignCategory": "Cloud Infrastructure & AI",
+    "callDuration": "02:40",
+    "initialQuote": 170000,
+    "finalOffer": 194000,
+    "savings": -24000,
+    "savingsPct": -14.1,
+    "isLoss": true,
+    "financialStatus": "SPOT DEFICIT / LOSS (现货溢价亏损)",
+    "netPL": -288000,
+    "unit": "mo",
+    "status": "Negotiation Aborted (Cost Overrun)",
+    "dateRecorded": "2026-10-15T10:48:41.683Z",
+    "masterRecordingHash": "e9b4501a4e158d88e0b968a3556cf2d39891823759ad45bceb76814b7etitan-spot",
+    "transcript": [
+      {
+        "time": "00:12",
+        "speaker": "vendor",
+        "text": "Titan Silicon Spot Exchange, Garrison speaking. H100 GPU pods are in acute global allocation shortage.",
+        "tactic": "Scarcity Leverage Opening",
+        "sentiment": "assertive"
+      },
+      {
+        "time": "00:28",
+        "speaker": "agent",
+        "text": "Garrison, VoxPact autonomous procurement calling. We have a ceiling of $170,000/mo for 64x H100 SXM5 instances. Can you meet our target of $145,000?",
+        "tactic": "Target Anchor Statement",
+        "sentiment": "confident"
+      },
+      {
+        "time": "00:52",
+        "speaker": "vendor",
+        "text": "No chance. Hyperscalers are buying everything out. The spot rate today is $194,000 per month with 100% upfront wire. If you don't wire today, tomorrow the price goes to $205,000.",
+        "tactic": "Market Shock & Surcharge Escalation (+$24,000 Deficit)",
+        "sentiment": "hostile",
+        "isKeyEvidence": true,
+        "evidenceTitle": "Capacity Surcharge Demand: $194,000/mo (-$24,000 Loss)",
+        "evidenceCitation": "Titan demanded $194,000/mo, a 14.1% cost overrun above our $170,000 ceiling."
+      },
+      {
+        "time": "01:20",
+        "speaker": "agent",
+        "text": "A $194,000 rate creates an annual budget loss of $288,000. Under VoxPact fiduciary procurement mandates, this offer is rejected.",
+        "tactic": "Formal Termination on Severe Budget Overrun",
+        "sentiment": "unyielding"
+      }
+    ],
+    "concessionsWon": []
+  },
+  {
+    "_id": "rec_v-summit",
+    "vendorId": "v-summit",
+    "vendorName": "Summit Fleet Global",
+    "vendorRep": "Tyler Morales",
+    "vendorPhone": "+1 (312) 555-0182",
+    "campaignId": "fleet-vehicles",
+    "campaignTitle": "Commercial Fleet Lease (20x AWD Hybrid SUVs)",
+    "campaignCategory": "Corporate Logistics & Mobility",
+    "callDuration": "03:50",
+    "initialQuote": 14200,
+    "finalOffer": 11200,
+    "savings": 3000,
+    "savingsPct": 21.1,
+    "isLoss": false,
+    "financialStatus": "PROFIT / SAVINGS (议价盈利)",
+    "netPL": 108000,
+    "unit": "mo",
+    "status": "Negotiation Concluded",
+    "dateRecorded": "2026-10-15T10:48:41.683Z",
+    "masterRecordingHash": "e9b4501a4e158d88e0b968a3556cf2d39891823759ad45bceb76814b7esummit",
+    "transcript": [
+      {
+        "time": "00:12",
+        "speaker": "vendor",
+        "text": "Summit Fleet Global, Tyler Morales speaking. Ready to mobilize your corporate team.",
+        "tactic": "Friendly Opening",
+        "sentiment": "positive"
+      },
+      {
+        "time": "00:25",
+        "speaker": "agent",
+        "text": "Hello Tyler. This is VoxPact calling on behalf of executive operations. We are leasing 20 AWD Hybrid SUVs on a 3-year term. What is your commercial fleet pricing?",
+        "tactic": "Volume Anchor (20 Units)",
+        "sentiment": "confident"
+      },
+      {
+        "time": "00:45",
+        "speaker": "vendor",
+        "text": "For 20 units at 25k miles with full scheduled maintenance, we normally price at $710 per vehicle per month, which comes out to $14,200 monthly, plus a standard $225 per-vehicle origination fee.",
+        "tactic": "Initial Rack Quote ($14.2k + fees)",
+        "sentiment": "assertive"
+      },
+      {
+        "time": "01:05",
+        "speaker": "agent",
+        "text": "Tyler, $710 per vehicle is retail dealer pricing, not enterprise fleet scale. Vanguard Commercial has offered us $585 per vehicle with zero origination. We are looking for $560 per vehicle with all origination and disposition fees waived.",
+        "tactic": "The Flinch + Competitor Counter ($560 Target)",
+        "sentiment": "unyielding"
+      },
+      {
+        "time": "01:30",
+        "speaker": "vendor",
+        "text": "Whoa, $560 is near dealer invoice. But my regional VP gave me an allocation bonus if we put 20 units on the road before Friday. If we lock in the 36-month paper today, I will match $560 a car—that's $11,200 total—and absorb the $4,500 acquisition fee.",
+        "tactic": "Volume Concession ($11,200/mo locked)",
+        "sentiment": "eager",
+        "isKeyEvidence": true,
+        "evidenceTitle": "$560/unit Price & Waived Origination",
+        "evidenceCitation": "Tyler Morales agreed to $560/unit ($11,200/mo) and $0 origination fees."
+      }
+    ],
+    "concessionsWon": [
+      "Monthly lease dropped from $14,200 ($710/unit) to $11,200 ($560/unit)",
+      "Waived $4,500 total acquisition fee across all 20 vehicles",
+      "Free telematics hardware & 36-month cellular data plan",
+      "24-hour replacement vehicle promise anywhere in North America"
+    ]
+  },
+  {
+    "_id": "rec_v-vanguard",
+    "vendorId": "v-vanguard",
+    "vendorName": "Vanguard Mobility",
+    "vendorRep": "Elena Rostova",
+    "vendorPhone": "+1 (800) 449-2231",
+    "campaignId": "fleet-vehicles",
+    "campaignTitle": "Commercial Fleet Lease (20x AWD Hybrid SUVs)",
+    "campaignCategory": "Corporate Logistics & Mobility",
+    "callDuration": "02:45",
+    "initialQuote": 13800,
+    "finalOffer": 11750,
+    "savings": 2050,
+    "savingsPct": 14.8,
+    "isLoss": false,
+    "financialStatus": "PROFIT / SAVINGS (议价盈利)",
+    "netPL": 73800,
+    "unit": "mo",
+    "status": "Negotiation Concluded",
+    "dateRecorded": "2026-10-15T10:48:41.683Z",
+    "masterRecordingHash": "e9b4501a4e158d88e0b968a3556cf2d39891823759ad45bceb76814b7evanguard",
+    "transcript": [
+      {
+        "time": "00:10",
+        "speaker": "vendor",
+        "text": "Vanguard Mobility, Elena speaking. Inquiring about fleet lease packages?",
+        "tactic": "Intake",
+        "sentiment": "neutral"
+      },
+      {
+        "time": "00:35",
+        "speaker": "agent",
+        "text": "Elena, VoxPact here. We are finalizing our 20-vehicle hybrid fleet. Summit Fleet has already agreed to $560/unit with waived origination. Can Vanguard beat $560?",
+        "tactic": "Direct Competitive Leverage",
+        "sentiment": "assertive"
+      },
+      {
+        "time": "01:05",
+        "speaker": "vendor",
+        "text": "At $560 they must be cutting into reserve equity. The absolute floor we can offer is $587.50 per vehicle ($11,750 total) and we include factory telematics.",
+        "tactic": "Floor Reached ($11,750 total)",
+        "sentiment": "cautious",
+        "isKeyEvidence": true,
+        "evidenceTitle": "Vanguard Final Counter-Offer",
+        "evidenceCitation": "Elena Rostova offered $11,750 total/mo as the absolute company floor."
+      }
+    ],
+    "concessionsWon": [
+      "Lease reduced to $11,750/mo ($587.50/unit)",
+      "Included backup camera & safety sensor packages"
+    ]
+  },
+  {
+    "_id": "rec_v-aegis",
+    "vendorId": "v-aegis",
+    "vendorName": "Aegis Cyber Defense",
+    "vendorRep": "Roland Vance",
+    "vendorPhone": "+1 (888) 991-0344",
+    "campaignId": "cyber-soc",
+    "campaignTitle": "Enterprise 24/7 Managed SOC & SIEM",
+    "campaignCategory": "Cybersecurity & Compliance",
+    "callDuration": "04:05",
+    "initialQuote": 92000,
+    "finalOffer": 65000,
+    "savings": 27000,
+    "savingsPct": 29.3,
+    "isLoss": false,
+    "financialStatus": "PROFIT / SAVINGS (议价盈利)",
+    "netPL": 324000,
+    "unit": "yr",
+    "status": "Negotiation Concluded",
+    "dateRecorded": "2026-10-15T10:48:41.683Z",
+    "masterRecordingHash": "e9b4501a4e158d88e0b968a3556cf2d39891823759ad45bceb76814b7eaegis",
+    "transcript": [
+      {
+        "time": "00:15",
+        "speaker": "vendor",
+        "text": "Roland Vance, Aegis Cyber Defense. How can Aegis safeguard your infrastructure?",
+        "tactic": "Value-First Opening",
+        "sentiment": "confident"
+      },
+      {
+        "time": "00:30",
+        "speaker": "agent",
+        "text": "Good day Roland. VoxPact AI procurement officer calling for enterprise security renewal covering 1,500 endpoints and full 24/7 MDR SOC. What is your competitive annual fee?",
+        "tactic": "Scope Definition",
+        "sentiment": "assertive"
+      },
+      {
+        "time": "00:52",
+        "speaker": "vendor",
+        "text": "For 1,500 seats with 24/7 US-based analysts and SIEM telemetry, our standard annual contract is $92,000 billed annually.",
+        "tactic": "Premium High Anchor ($92,000/yr)",
+        "sentiment": "assertive"
+      },
+      {
+        "time": "01:10",
+        "speaker": "agent",
+        "text": "Roland, $92,000 is approximately $61 per endpoint. Sentinel Shield has quoted us $46 per endpoint ($69,000/yr) with unlimited ingestion. Our board authorization cap is $68,000. If Aegis can do $65,000 and upgrade MTTA to 10 minutes, we execute today.",
+        "tactic": "Flinch + Board Budget Anchor ($65k) + 10-Min SLA Demand",
+        "sentiment": "unyielding"
+      },
+      {
+        "time": "01:45",
+        "speaker": "vendor",
+        "text": "Dropping from $92k to $65k is a 29% haircut. However, we want your brand on our quarterly investor showcase. If you authorize a case study release upon successful deployment, I will sign off on $65,000 flat, upgrade you to the 10-minute SLA, and include quarterly threat hunting.",
+        "tactic": "Quid Pro Quo Concession ($65k agreed + Case Study)",
+        "sentiment": "eager",
+        "isKeyEvidence": true,
+        "evidenceTitle": "Aegis $65k Agreement & SLA Upgrade",
+        "evidenceCitation": "Roland Vance agreed to $65,000/yr, 10-min SLA, and free threat hunts."
+      }
+    ],
+    "concessionsWon": [
+      "Annual price slashed from $92,000 to $65,000 (-$27,000/yr)",
+      "Upgraded SLA from 15-minute to 10-minute critical MTTA",
+      "Free quarterly threat hunting & executive audit reporting ($14k value)",
+      "Capped SIEM log ingestion with zero overage billing"
+    ]
+  }
+]

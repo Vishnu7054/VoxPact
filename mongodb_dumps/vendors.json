@@ -1,0 +1,308 @@
+[
+  {
+    "_id": "v-skanda",
+    "campaignId": "skanda-vehicle",
+    "name": "Skanda Commercial Motors",
+    "phone": "+1 (800) 419-7720",
+    "rep": "Skanda",
+    "repTitle": "Account Executive",
+    "initialQuote": 12240,
+    "finalOffer": 8800,
+    "savings": 3440,
+    "savingsPct": 28.1,
+    "isLoss": false,
+    "financialStatus": "PROFIT / SAVINGS (议价盈利)",
+    "netPL": 3440,
+    "sla": "6-Month Powertrain Warranty Included",
+    "paymentTerms": "Full Cash Settlement via Wire",
+    "egressPolicy": "Zero dealer doc fee ($0 administrative)",
+    "overallScore": 95,
+    "recommendationTier": "BEST OVERALL",
+    "stressIndex": "Moderate (Pushed past standard wholesale reserve)",
+    "redFlags": [],
+    "concessionsWon": [
+      "Price reduced from $12,240 to $8,800 (-$3,440 cash savings)",
+      "Waived all dealer documentation and title transfer fees ($450 value)",
+      "Secured 6-month comprehensive powertrain warranty",
+      "Free pre-delivery vehicle detailing and safety certification"
+    ],
+    "createdAt": "2026-10-15T10:48:41.683Z"
+  },
+  {
+    "_id": "v-automax",
+    "campaignId": "skanda-vehicle",
+    "name": "AutoMax Fleet Liquidators",
+    "phone": "+1 (800) 922-1144",
+    "rep": "Dave Sterling",
+    "repTitle": "Disposal Manager",
+    "initialQuote": 11000,
+    "finalOffer": 13600,
+    "savings": -2600,
+    "savingsPct": -23.6,
+    "isLoss": true,
+    "financialStatus": "DEFICIT / LOSS (超支亏损)",
+    "netPL": -2600,
+    "sla": "As-Is / No Warranty (Buyer Assumes All Risk)",
+    "paymentTerms": "Immediate Wire + 3.5% Processing Fee",
+    "egressPolicy": "Mandatory $1,200 administrative salvage surcharge",
+    "overallScore": 38,
+    "recommendationTier": "DEFICIT / REJECT (亏损预警)",
+    "stressIndex": "Hostile / Non-Negotiable Monopoly Stance",
+    "redFlags": [
+      {
+        "type": "danger",
+        "text": "SEVERE LOSS TRAP: Undisclosed $2,600 salvage re-certification surcharge imposed after inspection",
+        "resolved": false
+      },
+      {
+        "type": "danger",
+        "text": "Mandatory 3.5% wire fee + $1,200 administrative document fee added to base",
+        "resolved": false
+      }
+    ],
+    "concessionsWon": [],
+    "createdAt": "2026-10-15T10:48:41.683Z"
+  },
+  {
+    "_id": "v-apex",
+    "campaignId": "gpu-cluster",
+    "name": "Apex Tensor Cloud",
+    "phone": "+1 (415) 890-4421",
+    "rep": "Marcus Vance",
+    "repTitle": "VP Enterprise Sales",
+    "initialQuote": 188000,
+    "finalOffer": 142500,
+    "savings": 45500,
+    "savingsPct": 24.2,
+    "isLoss": false,
+    "financialStatus": "PROFIT / SAVINGS (议价盈利)",
+    "netPL": 546000,
+    "sla": "99.99% with 3x SLA penalty credits",
+    "paymentTerms": "Net-45 (waived upfront deposit)",
+    "egressPolicy": "Zero egress fees up to 150TB/mo",
+    "overallScore": 96,
+    "recommendationTier": "BEST OVERALL",
+    "stressIndex": "High (Pushed to quarterly bottom line)",
+    "redFlags": [
+      {
+        "type": "low",
+        "text": "Scheduled monthly maintenance window (Sundays 02:00-04:00 UTC)",
+        "resolved": true
+      }
+    ],
+    "concessionsWon": [
+      "Monthly rate slashed from $188,000 to $142,500 (-$45,500/mo)",
+      "Waived $25,000 cluster onboarding & InfiniBand setup fee",
+      "Contractual 3x credit penalty for any downtime breaching 99.99%",
+      "Upgraded to Net-45 payment terms without personal guarantee"
+    ],
+    "createdAt": "2026-10-15T10:48:41.683Z"
+  },
+  {
+    "_id": "v-nebula",
+    "campaignId": "gpu-cluster",
+    "name": "Nebula Compute Lab",
+    "phone": "+1 (650) 412-9903",
+    "rep": "Dr. Sarah Chen",
+    "repTitle": "Co-Founder & COO",
+    "initialQuote": 169000,
+    "finalOffer": 148000,
+    "savings": 21000,
+    "savingsPct": 12.4,
+    "isLoss": false,
+    "financialStatus": "PROFIT / SAVINGS (议价盈利)",
+    "netPL": 252000,
+    "sla": "99.95% Hardware Uptime",
+    "paymentTerms": "Net-30 with 10% advance",
+    "egressPolicy": "$0.02/GB after first 50TB",
+    "overallScore": 84,
+    "recommendationTier": "STRONG RUNNER-UP",
+    "stressIndex": "Moderate",
+    "redFlags": [
+      {
+        "type": "medium",
+        "text": "Requires 10% advance payment upfront",
+        "resolved": false
+      },
+      {
+        "type": "low",
+        "text": "SLA caps penalty credits at 1x monthly value",
+        "resolved": true
+      }
+    ],
+    "concessionsWon": [
+      "Rate reduced from $169,000 to $148,000/mo",
+      "Free 100TB NVMe scratch storage tier included",
+      "Priority direct engineer Slack channel access"
+    ],
+    "createdAt": "2026-10-15T10:48:41.683Z"
+  },
+  {
+    "_id": "v-hyperion",
+    "campaignId": "gpu-cluster",
+    "name": "Hyperion Infrastructure",
+    "phone": "+1 (212) 779-3100",
+    "rep": "Derek Croft",
+    "repTitle": "Senior Account Executive",
+    "initialQuote": 195000,
+    "finalOffer": 162000,
+    "savings": 33000,
+    "savingsPct": 16.9,
+    "isLoss": false,
+    "financialStatus": "PROFIT / SAVINGS (议价盈利)",
+    "netPL": 396000,
+    "sla": "99.9% Best Effort",
+    "paymentTerms": "Net-30 (Strict late fee 2%)",
+    "egressPolicy": "Metered at $0.05/GB",
+    "overallScore": 61,
+    "recommendationTier": "HIGH RISK / REJECT",
+    "stressIndex": "Low (Rigid corporate playbook)",
+    "redFlags": [
+      {
+        "type": "danger",
+        "text": "TRAP DETECTED: Automatic 36-month rollover if not canceled 90 days before year-end",
+        "resolved": false
+      },
+      {
+        "type": "danger",
+        "text": "Excessive data egress penalty ($0.05/GB could add $18,000/mo)",
+        "resolved": false
+      },
+      {
+        "type": "medium",
+        "text": "Weak SLA: Only 99.9% with 10% service credit cap",
+        "resolved": false
+      }
+    ],
+    "concessionsWon": [
+      "Initial quote dropped from $195,000 to $162,000/mo"
+    ],
+    "createdAt": "2026-10-15T10:48:41.683Z"
+  },
+  {
+    "_id": "v-titan-spot",
+    "campaignId": "gpu-cluster",
+    "name": "Titan Silicon Spot Exchange",
+    "phone": "+1 (212) 890-9988",
+    "rep": "Garrison Vance",
+    "repTitle": "Spot Arbitrage Broker",
+    "initialQuote": 170000,
+    "finalOffer": 194000,
+    "savings": -24000,
+    "savingsPct": -14.1,
+    "isLoss": true,
+    "financialStatus": "SPOT DEFICIT / LOSS (现货溢价亏损)",
+    "netPL": -288000,
+    "sla": "99.5% Best Effort (Preemptible Risk)",
+    "paymentTerms": "100% Upfront Wire Required (No Terms)",
+    "egressPolicy": "High metered egress ($0.08/GB surcharge)",
+    "overallScore": 32,
+    "recommendationTier": "DEFICIT / REJECT (溢价亏损)",
+    "stressIndex": "Extreme Seller Leverage (Market Shortage)",
+    "redFlags": [
+      {
+        "type": "danger",
+        "text": "SPOT MARKET PREMIUM DEFICIT: Demanded $24,000/mo ($288,000/yr) surcharge above budget ceiling due to AI capacity shortages",
+        "resolved": false
+      },
+      {
+        "type": "danger",
+        "text": "Unilateral preemption clause allowing vendor to reclaim nodes on 48h notice",
+        "resolved": false
+      }
+    ],
+    "concessionsWon": [],
+    "createdAt": "2026-10-15T10:48:41.683Z"
+  },
+  {
+    "_id": "v-summit",
+    "campaignId": "fleet-vehicles",
+    "name": "Summit Fleet Global",
+    "phone": "+1 (312) 555-0182",
+    "rep": "Tyler Morales",
+    "repTitle": "Regional Fleet Director",
+    "initialQuote": 14200,
+    "finalOffer": 11200,
+    "savings": 3000,
+    "savingsPct": 21.1,
+    "isLoss": false,
+    "financialStatus": "PROFIT / SAVINGS (议价盈利)",
+    "netPL": 108000,
+    "sla": "24-hour vehicle replacement guarantee",
+    "paymentTerms": "Net-30 ACH",
+    "egressPolicy": "0.08/mi overage (industry low)",
+    "overallScore": 94,
+    "recommendationTier": "BEST OVERALL",
+    "stressIndex": "High (End-of-month unit allocation quota)",
+    "redFlags": [],
+    "concessionsWon": [
+      "Monthly lease dropped from $14,200 ($710/unit) to $11,200 ($560/unit)",
+      "Waived $4,500 total acquisition fee across all 20 vehicles",
+      "Free telematics hardware & 36-month cellular data plan",
+      "24-hour replacement vehicle promise anywhere in North America"
+    ],
+    "createdAt": "2026-10-15T10:48:41.683Z"
+  },
+  {
+    "_id": "v-vanguard",
+    "campaignId": "fleet-vehicles",
+    "name": "Vanguard Mobility",
+    "phone": "+1 (800) 449-2231",
+    "rep": "Elena Rostova",
+    "repTitle": "Commercial Fleet Manager",
+    "initialQuote": 13800,
+    "finalOffer": 11750,
+    "savings": 2050,
+    "savingsPct": 14.8,
+    "isLoss": false,
+    "financialStatus": "PROFIT / SAVINGS (议价盈利)",
+    "netPL": 73800,
+    "sla": "48-hour vehicle replacement",
+    "paymentTerms": "Net-15",
+    "egressPolicy": "$0.15/mi overage",
+    "overallScore": 82,
+    "recommendationTier": "VIABLE ALTERNATIVE",
+    "stressIndex": "Low",
+    "redFlags": [
+      {
+        "type": "medium",
+        "text": "Overage mileage rate is $0.15/mi (almost double Summit)",
+        "resolved": false
+      }
+    ],
+    "concessionsWon": [
+      "Lease reduced to $11,750/mo ($587.50/unit)",
+      "Included backup camera & safety sensor packages"
+    ],
+    "createdAt": "2026-10-15T10:48:41.683Z"
+  },
+  {
+    "_id": "v-aegis",
+    "campaignId": "cyber-soc",
+    "name": "Aegis Cyber Defense",
+    "phone": "+1 (888) 991-0344",
+    "rep": "Roland Vance",
+    "repTitle": "Chief Revenue Officer",
+    "initialQuote": 92000,
+    "finalOffer": 65000,
+    "savings": 27000,
+    "savingsPct": 29.3,
+    "isLoss": false,
+    "financialStatus": "PROFIT / SAVINGS (议价盈利)",
+    "netPL": 324000,
+    "sla": "10-minute critical response SLA with liquidated damages",
+    "paymentTerms": "Quarterly Net-45",
+    "egressPolicy": "Unlimited SIEM ingestion",
+    "overallScore": 97,
+    "recommendationTier": "BEST OVERALL",
+    "stressIndex": "High (Aggressive quarterly market share expansion)",
+    "redFlags": [],
+    "concessionsWon": [
+      "Annual price slashed from $92,000 to $65,000 (-$27,000/yr)",
+      "Upgraded SLA from 15-minute to 10-minute critical MTTA",
+      "Free quarterly threat hunting & executive audit reporting ($14k value)",
+      "Capped SIEM log ingestion with zero overage billing"
+    ],
+    "createdAt": "2026-10-15T10:48:41.683Z"
+  }
+]

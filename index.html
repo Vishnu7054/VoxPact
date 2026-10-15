@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VoxPact — Autonomous Voice AI Telephony & Deal Arbitration</title>
+  <meta name="description" content="Autonomous Voice AI Agent that calls businesses, conducts multi-round verbal negotiations, compares offers, audits contract traps, and delivers evidence-backed deal recommendations.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./src/style.css">
+</head>
+<body class="dark-theme">
+  <!-- Audio Context Activator Notification -->
+  <div id="audio-init-banner" class="audio-banner hidden">
+    <span>🔊 Click anywhere or press any key to activate real-time telephony audio effects and voice synthesis.</span>
+    <button id="dismiss-banner-btn" class="btn-micro">Enable Audio</button>
+  </div>
+
+  <div class="app-container">
+    <!-- Top Executive Navigation Bar -->
+    <header class="app-header">
+      <div class="header-left">
+        <div class="brand-cluster">
+          <div class="brand-logo-glow">
+            <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" />
+              <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+              <line x1="12" x2="12" y1="19" y2="22" />
+              <circle cx="12" cy="12" r="10" stroke-opacity="0.2" />
+            </svg>
+            <span class="pulse-indicator"></span>
+          </div>
+          <div class="brand-meta">
+            <div class="brand-name">VOXPACT <span class="badge-tech">VOICE AI 2.0</span></div>
+            <div class="brand-sub">Autonomous Telephony Procurement Swarm</div>
+          </div>
+        </div>
+
+        <!-- Global Campaign Quick Switcher -->
+        <div class="campaign-selector-box">
+          <label for="campaign-select" class="selector-label">ACTIVE MISSION:</label>
+          <div class="select-wrapper">
+            <select id="campaign-select" class="custom-select"></select>
+          </div>
+          <button id="btn-new-campaign" class="btn-icon-label" title="Create Custom Negotiation Campaign">
+            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            <span>New Mission</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="header-right">
+        <!-- Live Aggregate Savings, Losses & Net P&L Ticker -->
+        <div class="metrics-ticker">
+          <div class="ticker-item">
+            <span class="ticker-label">GROSS SAVINGS (盈利)</span>
+            <span id="stat-gross-savings" class="ticker-val savings-glow">+$342,800</span>
+          </div>
+          <div class="ticker-divider"></div>
+          <div class="ticker-item">
+            <span class="ticker-label">DEFICITS / OVERRUN (亏损)</span>
+            <span id="stat-total-losses" class="ticker-val danger-glow">-$26,600</span>
+          </div>
+          <div class="ticker-divider"></div>
+          <div class="ticker-item">
+            <span class="ticker-label">NET REALIZED P&amp;L</span>
+            <span id="stat-net-pl" class="ticker-val highlight-cyan">+$316,200</span>
+          </div>
+        </div>
+
+        <!-- Telephony Voice & Audio Controls -->
+        <div class="telephony-controls">
+          <button id="toggle-sound-btn" class="telephony-toggle active" title="Toggle DTMF Dial & Chimes Audio">
+            <span class="toggle-icon">🔔</span>
+            <span class="toggle-text">SFX</span>
+          </button>
+          <button id="toggle-speech-btn" class="telephony-toggle active" title="Toggle Real AI Speech Synthesis (TTS)">
+            <span class="toggle-icon">🗣️</span>
+            <span class="toggle-text">VOICE</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="main-tabs" role="tablist">
+      <button class="nav-tab active" data-tab="tab-mission">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        <span>1. Mission Control</span>
+      </button>
+      <button class="nav-tab" data-tab="tab-calling">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span>2. Live Call Dispatcher</span>
+        <span id="live-call-badge" class="tab-badge pulse hidden">ACTIVE CALL</span>
+      </button>
+      <button class="nav-tab" data-tab="tab-evidence">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <span>3. Evidence & Recommendation</span>
+      </button>
+      <button class="nav-tab" data-tab="tab-contract">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        <span>4. Binding Term Sheet & Seal</span>
+      </button>
+      <button class="nav-tab" data-tab="tab-sandbox">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+        <span>5. Voice Lab & Tactics</span>
+      </button>
+      <!-- TAB 6: DEDICATED CALL RECORDS & AUDIO VAULT -->
+      <button class="nav-tab" data-tab="tab-vault">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        <span>6. Call Records & Audio Vault</span>
+        <span class="tab-badge" id="vault-badge-count">Archived</span>
+      </button>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="main-viewport">
+
+      <!-- TAB 1: MISSION CONTROL -->
+      <section id="tab-mission" class="tab-pane active">
+        <div class="mission-hero">
+          <div class="mission-header-info">
+            <span id="mission-category" class="pill-category">CLOUD INFRASTRUCTURE & AI</span>
+            <h1 id="mission-title" class="mission-main-heading">Enterprise NVIDIA H100 Cloud Cluster</h1>
+            <p id="mission-subtitle" class="mission-subheading">64x H100 SXM5 Nodes (8-way HGX), InfiniBand, 1-Year Reserved Instance</p>
+          </div>
+          <div class="mission-action-cta">
+            <button id="btn-launch-all-calls" class="btn-primary-glow">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              <span>Launch Autonomous Multi-Target Calls</span>
+            </button>
+            <div class="cta-subtext">Dispatches VoxPact Voice AI agents to negotiate with all targeted vendors</div>
+          </div>
+        </div>
+
+        <div class="mission-grid">
+          <!-- Mission Constraints Card -->
+          <div class="glass-card mission-parameters-card">
+            <div class="card-title-bar">
+              <span class="card-icon">🎯</span>
+              <h3>Procurement Constraints & Guardrails</h3>
+            </div>
+            <div class="params-metrics">
+              <div class="param-box">
+                <span class="param-label">Target Ceiling (Walk-Away)</span>
+                <span id="display-budget-ceiling" class="param-val danger-text">$170,000/mo</span>
+              </div>
+              <div class="param-box">
+                <span class="param-label">Target Goal Price</span>
+                <span id="display-target-price" class="param-val success-text">$145,000/mo</span>
+              </div>
+              <div class="param-box">
+                <span class="param-label">Negotiation Stance</span>
+                <span class="param-val highlight-purple">Shark / Aggressive Anchor</span>
+              </div>
+            </div>
+
+            <div class="requirements-section">
+              <h4>Mandatory Contract Specifications</h4>
+              <ul id="mission-req-list" class="checklist"></ul>
+            </div>
+          </div>
+
+          <!-- Target Vendors Roster -->
+          <div class="glass-card targets-roster-card">
+            <div class="card-title-bar">
+              <span class="card-icon">📞</span>
+              <h3>Target Business Vendor Roster</h3>
+              <span class="badge-count" id="target-vendors-count">3 Targets</span>
+            </div>
+
+            <div id="target-vendors-list" class="vendor-roster-list">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 2: LIVE CALL DISPATCHER -->
+      <section id="tab-calling" class="tab-pane">
+        <div class="calling-layout">
+          <!-- Left Telephony Visualizer & Call HUD -->
+          <div class="telephony-left-col">
+            <div class="glass-card call-hud-card">
+              <div class="call-hud-header">
+                <div class="call-status-indicator">
+                  <span id="call-status-dot" class="status-dot"></span>
+                  <span id="call-status-label" class="status-text">CALL READY</span>
+                </div>
+                <div class="call-timer-box">
+                  <span class="timer-icon">⏱️</span>
+                  <span id="call-timer" class="timer-digits">00:00</span>
+                </div>
+              </div>
+
+              <!-- Active Target Details -->
+              <div class="target-profile-bar">
+                <div class="target-avatar">🏢</div>
+                <div class="target-info">
+                  <div id="hud-vendor-name" class="hud-vendor-title">Apex Tensor Cloud</div>
+                  <div class="hud-vendor-sub">
+                    <span id="hud-vendor-phone" class="hud-phone">+1 (415) 890-4421</span>
+                    <span class="sub-sep">•</span>
+                    <span id="hud-vendor-rep" class="hud-rep">Marcus Vance (VP Enterprise Sales)</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Live Audio Spectrogram Canvas -->
+              <div class="spectrogram-container">
+                <div class="audio-hud-overlay">
+                  <span class="band-tag">TELEPHONY BANDPASS 300Hz - 3400Hz</span>
+                  <span id="audio-active-speaker" class="speaker-tag">LISTENING</span>
+                </div>
+                <canvas id="audio-spectrogram" width="560" height="120"></canvas>
+                <div class="waveform-meter">
+                  <div class="wave-track">
+                    <div id="wave-pulse" class="wave-pulse"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tactical Sentiment & Resistance Meter -->
+              <div class="tactical-meters-grid">
+                <div class="meter-card">
+                  <div class="meter-label-row">
+                    <span>Vendor Resistance & Stress</span>
+                    <span id="tension-percentage" class="meter-pct">50%</span>
+                  </div>
+                  <div class="progress-bar-bg">
+                    <div id="tension-fill" class="progress-bar-fill" style="width: 50%;"></div>
+                  </div>
+                  <span id="tension-state-desc" class="meter-caption">Neutral Stance</span>
+                </div>
+
+                <div class="meter-card">
+                  <div class="meter-label-row">
+                    <span>Negotiation Maneuver</span>
+                    <span class="radar-tag">TACTIC RADAR</span>
+                  </div>
+                  <div id="active-tactic-name" class="active-tactic-display">Awaiting Voice Connection</div>
+                </div>
+              </div>
+
+              <!-- Call Action Buttons -->
+              <div class="call-actions-row">
+                <button id="btn-dial-target" class="btn-dial">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  <span>Dial Target</span>
+                </button>
+                <button id="btn-hangup" class="btn-hangup" disabled>
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.68 13.31a16 16 0 0 0 3.41 2.6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7 2 2 0 0 1 1.72 2v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.42 19.42 0 0 1-3.33-2.67m-2.67-3.34a19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91"/><line x1="22" y1="2" x2="2" y2="22"/></svg>
+                  <span>End Call</span>
+                </button>
+                <button id="btn-fast-forward" class="btn-subtle" title="Fast-forward full negotiation simulation instantly">
+                  <span>⚡ Instant Conclude</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- UNIQUE FEATURE: Live Whispering / Human Co-Pilot -->
+            <div class="glass-card copilot-whisper-card">
+              <div class="whisper-header">
+                <div class="whisper-title">
+                  <span class="whisper-icon">🎙️</span>
+                  <h4>Human Co-Pilot — Real-Time Whisper Mode</h4>
+                </div>
+                <span class="whisper-badge">VOXPACT LISTENING</span>
+              </div>
+              <p class="whisper-desc">Inject tactical whisper commands into the live call. VoxPact will seamlessly integrate your prompt into its next verbal maneuver.</p>
+
+              <!-- Quick Whisper Preset Buttons -->
+              <div class="whisper-presets">
+                <button class="btn-preset-whisper" data-prompt="We have a verified quote 20% lower from a rival. Match or we walk immediately.">
+                  💥 "Match 20% Lower Quote"
+                </button>
+                <button class="btn-preset-whisper" data-prompt="Waive all onboarding fees and give us Net-60 payment terms or no deal.">
+                  💳 "Waive Fees + Net-60"
+                </button>
+                <button class="btn-preset-whisper" data-prompt="Add a strict 99.99% uptime guarantee with 3x penalty credit clauses.">
+                  🛡️ "Demand 3x SLA Penalty"
+                </button>
+                <button class="btn-preset-whisper" data-prompt="We are authorized to sign in the next 15 minutes if you drop another $5,000.">
+                  ⚡ "15-Min Urgency Drop"
+                </button>
+              </div>
+
+              <!-- Custom Whisper Input -->
+              <div class="whisper-input-row">
+                <input type="text" id="whisper-custom-input" placeholder="Type tactical whisper to VoxPact (e.g. 'Press them on free delivery')..." />
+                <button id="btn-send-whisper" class="btn-send-whisper">Whisper</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Real-Time Synchronized Transcript -->
+          <div class="telephony-right-col">
+            <div class="glass-card transcript-stream-card">
+              <div class="transcript-stream-header">
+                <div class="stream-title">
+                  <span class="stream-pulse"></span>
+                  <h3>Live Real-Time Audio Transcript</h3>
+                </div>
+                <div class="transcript-actions">
+                  <span class="evidence-counter-pill" id="evidence-found-count">0 Evidence Concessions</span>
+                </div>
+              </div>
+
+              <div id="live-transcript-feed" class="transcript-feed-scroll">
+                <div class="feed-empty-state">
+                  <div class="empty-icon">📞</div>
+                  <h4>No Active Call In Progress</h4>
+                  <p>Click "Dial Target" to start autonomous voice negotiation, or select a vendor from Mission Control.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 3: EVIDENCE-BACKED RECOMMENDATION (PROOF-VAULT) -->
+      <section id="tab-evidence" class="tab-pane">
+        <!-- Executive Winning Recommendation Banner -->
+        <div class="recommendation-hero-card">
+          <div class="rec-badge-ribbon">
+            <span class="ribbon-star">★</span>
+            <span>EVIDENCE-BACKED EXECUTIVE VERDICT</span>
+          </div>
+
+          <div class="rec-hero-content">
+            <div class="rec-left">
+              <span class="rec-winner-subtitle">WINNING VENDOR RECOMMENDATION</span>
+              <h2 id="rec-winner-name" class="rec-winner-title">Apex Tensor Cloud</h2>
+              <p id="rec-winner-summary" class="rec-summary-text">
+                Negotiation concluded at <strong>$142,500/mo</strong> (24.2% margin cut from $188,000/mo initial quote). Secured contractual 3x SLA penalty credits, waived $25,000 onboarding fee, zero egress, and Net-45 payment terms.
+              </p>
+              <div class="rec-key-proof-points" id="rec-bullet-proofs">
+                <!-- Injected via JS with clickable proof badges -->
+              </div>
+            </div>
+
+            <div class="rec-right-stats">
+              <div class="rec-stat-card highlight-green">
+                <span class="stat-title">ANNUAL CONTRACT VALUE SAVINGS</span>
+                <span id="rec-savings-amount" class="stat-value">$546,000</span>
+                <span class="stat-sub">Across Commitment Period</span>
+              </div>
+              <div class="rec-stat-card">
+                <span class="stat-title">COMPOSITE VOXPACT SCORE</span>
+                <span id="rec-composite-score" class="stat-value">96 / 100</span>
+                <span class="stat-sub">Price (40%) • SLA (30%) • Risk (30%)</span>
+              </div>
+              <button id="btn-jump-to-contract" class="btn-seal-deal">
+                <span>Lock & Execute Winning Deal</span>
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Multi-Vendor Comparative Matrix -->
+        <div class="glass-card matrix-card">
+          <div class="card-title-bar">
+            <div class="title-with-pill">
+              <span class="card-icon">📊</span>
+              <h3>Multi-Vendor Offer Arbitration Matrix</h3>
+            </div>
+            <span class="matrix-instruction">Click any <strong class="badge-proof-inline">[▶ PROOF]</strong> badge to inspect audio recording & transcript citation</span>
+          </div>
+
+          <div class="table-responsive">
+            <table class="negotiation-matrix-table">
+              <thead>
+                <tr>
+                  <th>Vendor & Rep</th>
+                  <th>Initial Rack Rate</th>
+                  <th>Negotiated Offer</th>
+                  <th>Net Savings</th>
+                  <th>SLA Commitment</th>
+                  <th>Payment Terms</th>
+                  <th>Contract Risk</th>
+                  <th>Proof Evidence</th>
+                </tr>
+              </thead>
+              <tbody id="matrix-table-body">
+                <!-- Dynamically generated rows -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Trap & Red-Flag Audit Section -->
+        <div class="glass-card red-flags-audit-card">
+          <div class="card-title-bar">
+            <span class="card-icon">🛡️</span>
+            <h3>Verbal Contract Trap & Red-Flag Audit</h3>
+            <span class="badge-audit">Automated Acoustic & Linguistic Scrutiny</span>
+          </div>
+          <div id="red-flags-container" class="flags-grid">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 4: BINDING TERM SHEET & CONTRACT LOCK -->
+      <section id="tab-contract" class="tab-pane">
+        <div class="contract-container">
+          <div class="contract-actions-toolbar">
+            <div class="toolbar-left">
+              <span class="doc-badge">FORMAL BINDING LOI • ARBITRATED AGREEMENT</span>
+              <span id="doc-hash-pill" class="doc-hash">SHA-256: 7f8a9e...3c2b</span>
+            </div>
+            <div class="toolbar-right">
+              <button id="btn-print-contract" class="btn-outline">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+                <span>Print / Save PDF</span>
+              </button>
+              <button id="btn-execute-seal" class="btn-sign-glow">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <span>Sign & Seal Binding Deal</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Formal Printable Contract Document -->
+          <div id="formal-contract-doc" class="formal-term-sheet">
+            <div class="sheet-watermark">LEGALLY BINDING</div>
+            <div class="sheet-header">
+              <div class="sheet-title-group">
+                <h2 class="sheet-main-title">EXECUTIVE LETTER OF INTENT & TERM SHEET</h2>
+                <div class="sheet-sub">DERIVED FROM VERIFIED AUTONOMOUS AUDIO RECORDINGS & VERBAL ASSENTS</div>
+              </div>
+              <div class="sheet-meta-block">
+                <div><strong>Contract ID:</strong> <span id="contract-id-val">NEG-2026-8819</span></div>
+                <div><strong>Date Executed:</strong> <span id="contract-date-val">October 15, 2026</span></div>
+                <div><strong>Verification Standard:</strong> Audio Biometric Verbal Seal</div>
+              </div>
+            </div>
+
+            <div class="sheet-parties-grid">
+              <div class="party-box">
+                <h4>CLIENT (BUYER)</h4>
+                <div class="party-name">Autonomous Enterprise Procurement Corp</div>
+                <div class="party-rep">Agent: VoxPact Autonomous Negotiator (Authorized Proxy)</div>
+                <div class="party-sign-status">VERIFIED DIGITAL POWER OF ATTORNEY</div>
+              </div>
+              <div class="party-box">
+                <h4>VENDOR (SERVICE PROVIDER)</h4>
+                <div id="contract-vendor-name" class="party-name">Apex Tensor Cloud</div>
+                <div id="contract-vendor-rep" class="party-rep">Marcus Vance (VP Enterprise Sales)</div>
+                <div class="party-sign-status verbal-assent">VERBAL RECORDING ASSENT LOGGED</div>
+              </div>
+            </div>
+
+            <div class="sheet-clause-section">
+              <h3>1. Commercial Scope & Negotiated Pricing</h3>
+              <p>The Service Provider hereby agrees to deliver the designated specifications under the following agreed commercial terms, overriding standard list rates:</p>
+              <table class="sheet-pricing-table">
+                <thead>
+                  <tr>
+                    <th>Item Description</th>
+                    <th>Standard List Rate</th>
+                    <th>Agreed Rate</th>
+                    <th>Savings Margin</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td id="contract-scope-desc">64x NVIDIA H100 SXM5 GPU Dedicated Pod Cluster</td>
+                    <td id="contract-rack-rate">$188,000 / month</td>
+                    <td id="contract-final-rate" class="rate-highlight">$142,500 / month</td>
+                    <td id="contract-savings-pct" class="savings-highlight">24.2% Margin Reduction</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="sheet-clause-section">
+              <h3>2. Executed Concessions & Binding Riders</h3>
+              <ul id="contract-concessions-list" class="sheet-concessions-bullets">
+                <!-- Dynamically populated from winner's extracted concessions -->
+              </ul>
+            </div>
+
+            <div class="sheet-clause-section">
+              <h3>3. Verbal Assent & Audio Recording Evidentiary Citation</h3>
+              <div class="audio-evidence-citation-box">
+                <div class="citation-stamp">AUDIO CITATION REGISTERED</div>
+                <p id="contract-verbal-citation">
+                  "Agreed. 99.99% SLA with 3x credits and 150TB free egress is included in the rider. Send over your digital Term Sheet and I will countersign." — Marcus Vance [03:02]
+                </p>
+                <div class="hash-string" id="contract-audio-hash">
+                  Telephony Master Recording Hash: e9b4501a4e158d88e0b968a3556cf2d39891823759ad45bceb76814b7e80f2ad
+                </div>
+              </div>
+            </div>
+
+            <div class="sheet-signatures-block">
+              <div class="sig-column">
+                <div class="sig-line">
+                  <span class="digital-sig-stamp">VoxPact Autonomous Agent (Cryptographically Sealed)</span>
+                </div>
+                <span class="sig-title">Buyer Authorized Agent Signature</span>
+              </div>
+              <div class="sig-column">
+                <div class="sig-line" id="vendor-sig-box">
+                  <span id="vendor-sig-text" class="vendor-sig-stamp">Marcus Vance [Verbal Assent Logged]</span>
+                </div>
+                <span class="sig-title">Vendor Counterparty Signature</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 5: VOICE LAB & TACTICS PLAYGROUND -->
+      <section id="tab-sandbox" class="tab-pane">
+        <div class="sandbox-grid">
+          <!-- Voice Lab Dialer & Custom Telephony Simulator -->
+          <div class="glass-card dialer-card">
+            <div class="card-title-bar">
+              <span class="card-icon">🎛️</span>
+              <h3>Interactive Voice AI Dialer & Simulator</h3>
+            </div>
+            <p class="sandbox-desc">Test custom negotiation tactics, trigger real-time DTMF tones, and listen to the VoxPact voice agent handle live counter-proposals.</p>
+
+            <div class="custom-dialer-form">
+              <div class="form-row">
+                <label>Target Business Name</label>
+                <input type="text" id="sandbox-biz-name" value="Velocity Cloud Networks" />
+              </div>
+              <div class="form-row">
+                <label>Sales Representative Name</label>
+                <input type="text" id="sandbox-rep-name" value="Greg Henderson (Director of Cloud Solutions)" />
+              </div>
+              <div class="form-row-grid">
+                <div>
+                  <label>Initial Asking Quote ($)</label>
+                  <input type="number" id="sandbox-initial-price" value="85000" />
+                </div>
+                <div>
+                  <label>Our Target Counter-Offer ($)</label>
+                  <input type="number" id="sandbox-target-price" value="62000" />
+                </div>
+              </div>
+              <div class="form-row">
+                <label>Tactical Maneuver To Test</label>
+                <select id="sandbox-tactic-select" class="custom-select">
+                  <option value="flinch">The Flinch (Extreme Shock at Price)</option>
+                  <option value="competitor_pincer">Competitor Leverage Pincer</option>
+                  <option value="silence_pressure">Calculated Silence / Walk-Away</option>
+                  <option value="the_nibble">The Post-Agreement Nibble</option>
+                  <option value="red_flag_interrogation">Contract Clause Trap Interrogation</option>
+                </select>
+              </div>
+
+              <div class="dialpad-box">
+                <div class="dialpad-grid">
+                  <button class="dtmf-key" data-key="1">1</button>
+                  <button class="dtmf-key" data-key="2">2</button>
+                  <button class="dtmf-key" data-key="3">3</button>
+                  <button class="dtmf-key" data-key="4">4</button>
+                  <button class="dtmf-key" data-key="5">5</button>
+                  <button class="dtmf-key" data-key="6">6</button>
+                  <button class="dtmf-key" data-key="7">7</button>
+                  <button class="dtmf-key" data-key="8">8</button>
+                  <button class="dtmf-key" data-key="9">9</button>
+                  <button class="dtmf-key" data-key="*">*</button>
+                  <button class="dtmf-key" data-key="0">0</button>
+                  <button class="dtmf-key" data-key="#">#</button>
+                </div>
+              </div>
+
+              <button id="btn-run-sandbox-simulation" class="btn-primary-glow">
+                <span>Simulate Voice Negotiation Exchange</span>
+              </button>
+            </div>
+
+            <div id="sandbox-output-box" class="sandbox-output-box hidden">
+              <div class="sandbox-transcript-header">SIMULATED VOICE DIALOGUE</div>
+              <div id="sandbox-transcript-lines" class="sandbox-lines"></div>
+            </div>
+          </div>
+
+          <!-- Tactical Playbook Reference Card -->
+          <div class="glass-card playbook-card">
+            <div class="card-title-bar">
+              <span class="card-icon">🧠</span>
+              <h3>Autonomous Tactical Playbook</h3>
+              <span class="badge-count">5 Core Maneuvers</span>
+            </div>
+            <div class="playbook-list">
+              <div class="playbook-item">
+                <div class="item-head">
+                  <span class="playbook-name">1. The Flinch</span>
+                  <span class="pill-stat">89% Win Rate</span>
+                </div>
+                <p>Expresses calculated shock at the initial quote. Psychologically anchors the vendor to realize their opening offer was excessive.</p>
+              </div>
+
+              <div class="playbook-item">
+                <div class="item-head">
+                  <span class="playbook-name">2. Competitor Pincer</span>
+                  <span class="pill-stat">94% Win Rate</span>
+                </div>
+                <p>Quotes verified rival pricing with technical parity, demanding equal or superior concessions before the conversation progresses.</p>
+              </div>
+
+              <div class="playbook-item">
+                <div class="item-head">
+                  <span class="playbook-name">3. Calculated Silence (Awkward Pause)</span>
+                  <span class="pill-stat">82% Win Rate</span>
+                </div>
+                <p>Intentional 3-4 second verbal stillness following an ultimatum, forcing the sales rep to break the silence with immediate price drops.</p>
+              </div>
+
+              <div class="playbook-item">
+                <div class="item-head">
+                  <span class="playbook-name">4. The Post-Agreement Nibble</span>
+                  <span class="pill-stat">91% Win Rate</span>
+                </div>
+                <p>Once price is agreed, immediately demands secondary concessions (waived onboarding, free support tiers, Net-45) right before sign-off.</p>
+              </div>
+
+              <div class="playbook-item">
+                <div class="item-head">
+                  <span class="playbook-name">5. Red-Flag Cross Examination</span>
+                  <span class="pill-stat">98% Detection</span>
+                </div>
+                <p>Interrogates MSA renewal clauses, overage billing, and liquidated damages to disarm sneaky commercial traps.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 6: DEDICATED CALL RECORDS & AUDIO VAULT (HUMAN AUDIT & REVIEW) -->
+      <section id="tab-vault" class="tab-pane">
+        <!-- Storage Status & Location Banner -->
+        <div class="glass-card vault-location-banner">
+          <div class="banner-icon-col">📁</div>
+          <div class="banner-text-col">
+            <div class="banner-title-row">
+              <h3>Human Audit Vault & Permanent Recording Repository</h3>
+              <span class="badge-tech">LOCAL & AUDITABLE</span>
+            </div>
+            <p class="banner-desc">
+              All telephone negotiations, verbal assents, and audio sessions are archived locally for legal scrutiny, compliance, and human verification.
+            </p>
+            <div class="storage-paths-box">
+              <div class="path-item">
+                <span class="path-label">BROWSER PERSISTENT VAULT:</span>
+                <code>localStorage: voxpact_call_archive (Timestamped & Cryptographically Hashed)</code>
+              </div>
+              <div class="path-item">
+                <span class="path-label">SESSION ARTIFACT DISK LOGS:</span>
+                <code>C:\Users\majin\.gemini\antigravity-ide\brain\625433d6-6c8d-467d-919b-f731a2bb65f1\*.webp</code>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MongoDB Live Database Integration Card -->
+        <div class="glass-card mongo-sync-card">
+          <div class="card-title-bar">
+            <div class="title-with-pill">
+              <span class="card-icon">🍃</span>
+              <h3>MongoDB Live Cluster & Database Storage</h3>
+            </div>
+            <span id="mongo-status-badge" class="badge-count status-mongo-badge">Checking MongoDB Status...</span>
+          </div>
+          <p class="banner-desc">
+            Load, query, and synchronize all campaigns, vendor rosters, and call transcripts directly into your MongoDB database (supports local <code>mongodb://localhost:27017</code> or cloud <strong>MongoDB Atlas</strong>).
+          </p>
+
+          <div class="mongo-connection-form">
+            <div class="form-row">
+              <label>MongoDB Connection URI</label>
+              <div class="mongo-input-row">
+                <input type="text" id="mongo-uri-input" placeholder="mongodb+srv://<username>:<password>@cluster0.mongodb.net/voxpact or mongodb://localhost:27017/voxpact" value="mongodb://localhost:27017/voxpact" />
+                <button id="btn-mongo-connect" class="btn-primary-glow">
+                  <span>⚡ Connect & Sync</span>
+                </button>
+                <button id="btn-mongo-export-dumps" class="btn-outline">
+                  <span>⬇ Download Dumps (.JSON)</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- MongoDB Stats & Collections Summary -->
+            <div class="mongo-stats-grid">
+              <div class="mongo-stat-box">
+                <span class="mongo-stat-label">Database</span>
+                <span id="mongo-db-name" class="mongo-stat-val">voxpact</span>
+              </div>
+              <div class="mongo-stat-box">
+                <span class="mongo-stat-label">Collections</span>
+                <span id="mongo-cols-val" class="mongo-stat-val">4 collections</span>
+              </div>
+              <div class="mongo-stat-box">
+                <span class="mongo-stat-label">Total Documents</span>
+                <span id="mongo-docs-val" class="mongo-stat-val">27 documents</span>
+              </div>
+              <div class="mongo-stat-box">
+                <span class="mongo-stat-label">Export Dumps</span>
+                <span class="mongo-stat-val success-text">Ready in ./mongodb_dumps</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Master Human Audio Review Player -->
+        <div class="glass-card master-review-player">
+          <div class="player-header-bar">
+            <div class="now-playing-meta">
+              <span class="now-playing-tag" id="vault-now-playing-tag">AUDIO REVIEW CONSOLE</span>
+              <h4 id="vault-player-vendor">Select a Call Recording Below to Listen</h4>
+              <span id="vault-player-info" class="vault-player-sub">Full multi-turn dialogue with synthesized dual-voice audio & bandpass filters</span>
+            </div>
+            <div class="vault-player-controls">
+              <button id="btn-vault-play" class="btn-play-pill" disabled>
+                <span id="vault-play-icon">▶</span>
+                <span id="vault-play-text">Listen Full Call Recording</span>
+              </button>
+              <button id="btn-vault-stop" class="btn-subtle" disabled>
+                <span>⏹ Stop</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Step Progress Scrubber -->
+          <div class="vault-progress-wrapper">
+            <div class="vault-progress-track">
+              <div id="vault-progress-fill" class="vault-progress-fill" style="width: 0%;"></div>
+            </div>
+            <div class="vault-step-readout">
+              <span id="vault-active-step-speaker">Ready</span>:
+              <span id="vault-active-step-text" class="step-italic">Click "Listen Call Audio" on any archived call below.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Archived Calls Grid / Table -->
+        <div class="glass-card vault-table-card">
+          <div class="card-title-bar">
+            <div class="title-with-pill">
+              <span class="card-icon">🗄️</span>
+              <h3>Archived Negotiation Recordings</h3>
+            </div>
+            <span class="matrix-instruction">Click "Listen Call Audio" or download JSON / TXT / WAV files for human check</span>
+          </div>
+
+          <div class="table-responsive">
+            <table class="negotiation-matrix-table">
+              <thead>
+                <tr>
+                  <th>Target Business & Rep</th>
+                  <th>Campaign Mission</th>
+                  <th>Date & Time</th>
+                  <th>Call Duration</th>
+                  <th>Initial Quote</th>
+                  <th>Final Agreed</th>
+                  <th>Dollars Saved</th>
+                  <th>Actions & Export</th>
+                </tr>
+              </thead>
+              <tbody id="vault-table-body">
+                <!-- Dynamically populated from callArchive in JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- MODAL 1: AUDIO EVIDENCE PLAYER (THE PROOF-VAULT INSPECTOR) -->
+  <div id="modal-evidence-player" class="modal-backdrop hidden">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span class="evidence-icon">🎧</span>
+          <div>
+            <h3 id="modal-ev-title">Verbal Assent Evidence Recording</h3>
+            <span id="modal-ev-vendor" class="modal-subtitle">Apex Tensor Cloud • Marcus Vance</span>
+          </div>
+        </div>
+        <button id="modal-ev-close" class="btn-close-modal">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <!-- Audio Scrubbing & Spectrogram -->
+        <div class="evidence-audio-player-box">
+          <div class="player-top-row">
+            <button id="btn-ev-play-audio" class="btn-play-pill">
+              <span id="ev-play-icon">▶</span>
+              <span id="ev-play-label">Play Verbal Proof Audio</span>
+            </button>
+            <div class="ev-timestamp-readout">
+              <span id="ev-current-time">00:00</span> / <span id="ev-total-time">00:15</span>
+            </div>
+          </div>
+
+          <div class="evidence-waveform-visual">
+            <canvas id="ev-waveform-canvas" width="600" height="80"></canvas>
+            <div id="ev-scrub-cursor" class="scrub-cursor"></div>
+          </div>
+        </div>
+
+        <!-- Synchronized Transcript Citation Box -->
+        <div class="modal-citation-card">
+          <span class="citation-label">VERIFIED SPOKEN STATEMENT</span>
+          <p id="modal-ev-quote" class="modal-quote-text">
+            "Look, if you sign before 5 PM EST today, I will override desk pricing: $142,500 a month, waive the $25,000 onboarding fee, and give you Net-45."
+          </p>
+        </div>
+
+        <!-- Forensic Acoustic Analysis -->
+        <div class="forensic-grid">
+          <div class="forensic-box">
+            <span class="forensic-label">Acoustic Stress Index</span>
+            <div class="forensic-val high-stress">78% (Bottom-Line Reached)</div>
+            <span class="forensic-desc">Pitch variance & micro-hesitation indicate near-zero further margin room.</span>
+          </div>
+          <div class="forensic-box">
+            <span class="forensic-label">Legal Enforceability Rating</span>
+            <div class="forensic-val legal-valid">VERBALLY BINDING (99.4%)</div>
+            <span class="forensic-desc">Explicit mutual assent with stated consideration and authority logged.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button id="modal-ev-dismiss" class="btn-primary">Close Evidence Inspector</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 2: FULL TRANSCRIPT VIEWER MODAL -->
+  <div id="modal-transcript-viewer" class="modal-backdrop hidden">
+    <div class="modal-card" style="max-width: 760px;">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span class="evidence-icon">📄</span>
+          <div>
+            <h3 id="modal-trans-title">Archived Full Negotiation Transcript</h3>
+            <span id="modal-trans-subtitle" class="modal-subtitle">Target Rep • Verified Master Record</span>
+          </div>
+        </div>
+        <button id="modal-trans-close" class="btn-close-modal">&times;</button>
+      </div>
+
+      <div class="modal-body" style="max-height: 480px; overflow-y: auto;">
+        <div id="modal-trans-feed" class="transcript-feed-scroll">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button id="btn-export-trans-modal" class="btn-outline">Download .TXT</button>
+        <button id="modal-trans-dismiss" class="btn-primary">Close Viewer</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 3: CREATE CUSTOM NEGOTIATION MISSION -->
+  <div id="modal-new-campaign" class="modal-backdrop hidden">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span class="evidence-icon">🚀</span>
+          <div>
+            <h3>Create Custom Autonomous Sourcing Mission</h3>
+            <span class="modal-subtitle">Configure procurement targets, hard ceilings, and vendor list</span>
+          </div>
+        </div>
+        <button id="modal-campaign-close" class="btn-close-modal">&times;</button>
+      </div>
+
+      <form id="form-new-campaign" class="modal-body form-grid">
+        <div class="form-row">
+          <label>Mission Title *</label>
+          <input type="text" id="new-camp-title" required placeholder="e.g. Enterprise Snowflake Warehouse Optimization" />
+        </div>
+        <div class="form-row">
+          <label>Procurement Category</label>
+          <input type="text" id="new-camp-category" placeholder="e.g. Data Infrastructure, SaaS, Real Estate" />
+        </div>
+        <div class="form-row-grid">
+          <div>
+            <label>Hard Walk-Away Ceiling ($)</label>
+            <input type="number" id="new-camp-ceiling" required placeholder="95000" />
+          </div>
+          <div>
+            <label>Target Goal Price ($)</label>
+            <input type="number" id="new-camp-target" required placeholder="72000" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <label>Target Vendor 1 (Company Name, Phone, Rep)</label>
+          <input type="text" id="new-camp-v1" required placeholder="e.g. Snowflake Direct, +1 (415) 555-0199, Dave Miller" />
+        </div>
+        <div class="form-row">
+          <label>Target Vendor 2 (Company Name, Phone, Rep)</label>
+          <input type="text" id="new-camp-v2" placeholder="e.g. Databricks Enterprise, +1 (800) 555-0144, Alicia Keys" />
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" id="btn-cancel-campaign" class="btn-outline">Cancel</button>
+          <button type="submit" class="btn-primary-glow">Launch New Mission</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL 4: MONGODB LIVE DOCUMENT & JSON VIEWER -->
+  <div id="modal-mongo-json-viewer" class="modal-backdrop hidden">
+    <div class="modal-card mongo-viewer-card" style="max-width: 880px;">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span class="evidence-icon">🍃</span>
+          <div>
+            <div class="title-with-pill">
+              <h3 id="modal-mongo-title">MongoDB Live Document Inspector</h3>
+              <span id="modal-mongo-live-badge" class="badge-tech status-badge-live">🟢 LIVE FROM MONGODB</span>
+            </div>
+            <span id="modal-mongo-subtitle" class="modal-subtitle">Database: voxpact • Collection: call_records • Fast BSON Index Lookup</span>
+          </div>
+        </div>
+        <button id="modal-mongo-close" class="btn-close-modal">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <!-- MongoDB Query Meta Bar -->
+        <div class="mongo-meta-bar">
+          <div class="meta-item">
+            <span class="meta-label">QUERY:</span>
+            <code id="mongo-query-text">db.call_records.findOne({ "_id": "..." })</code>
+          </div>
+          <div class="meta-item-right">
+            <span class="meta-chip" id="mongo-exec-time">⚡ 1.2ms</span>
+            <span class="meta-chip status-chip" id="mongo-financial-badge">PROFIT</span>
+          </div>
+        </div>
+
+        <!-- Collection Switcher Tabs -->
+        <div class="mongo-collection-tabs">
+          <button class="mongo-col-tab active" data-col="call_records">📁 call_records</button>
+          <button class="mongo-col-tab" data-col="vendors">🏢 vendors</button>
+          <button class="mongo-col-tab" data-col="campaigns">🎯 campaigns</button>
+          <button class="mongo-col-tab" data-col="evidence_vault">🎧 evidence_vault</button>
+        </div>
+
+        <!-- Code Block Container -->
+        <div class="mongo-code-container">
+          <div class="code-toolbar">
+            <div class="code-lang">
+              <span class="dot-green"></span>
+              <span id="mongo-doc-id-label">_id: rec_...</span>
+            </div>
+            <div class="code-actions">
+              <button id="btn-copy-mongo-json" class="btn-code-action">
+                <span id="copy-json-icon">📋</span>
+                <span id="copy-json-label">Copy JSON</span>
+              </button>
+              <button id="btn-download-mongo-json" class="btn-code-action">
+                <span>⬇ Save .JSON</span>
+              </button>
+              <button id="btn-refresh-mongo-doc" class="btn-code-action">
+                <span>🔄 Re-query DB</span>
+              </button>
+            </div>
+          </div>
+          <pre class="mongo-json-pre"><code id="mongo-json-code" class="language-json">Loading document from MongoDB cluster...</code></pre>
+        </div>
+
+        <!-- MongoDB CLI / Compass Connect Snippet -->
+        <div class="mongo-compass-hint">
+          <span class="compass-label">💡 MongoDB Shell / Compass Direct Inspection:</span>
+          <code>mongosh "mongodb://localhost:27017/voxpact" --eval '<span id="mongo-compass-cmd">db.call_records.find({ isLoss: true })</span>'</code>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button id="btn-reseed-mongo-from-modal" class="btn-outline">⚡ Seed & Sync MongoDB</button>
+        <button id="modal-mongo-dismiss" class="btn-primary">Done & Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sound effect generator & UI coordination -->
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>

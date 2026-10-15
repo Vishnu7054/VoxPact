@@ -1,0 +1,91 @@
+[
+  {
+    "_id": "skanda-vehicle",
+    "title": "Pre-Owned Commercial Fleet / 2nd Hand Vehicle",
+    "subtitle": "Pre-Owned Commercial Transport Vehicle, Certified Inspection & Powertrain Warranty",
+    "category": "Vehicle Procurement",
+    "budgetCeiling": 12240,
+    "targetPrice": 9500,
+    "unit": "total",
+    "termMonths": 1,
+    "requirements": [
+      "Certified multi-point vehicle inspection",
+      "Under 60,000 verified miles with clean title",
+      "Waived documentation & dealer administrative fees",
+      "Powertrain warranty included (minimum 3-6 months)",
+      "Immediate cash/wire settlement discount"
+    ],
+    "vendorIds": [
+      "v-skanda",
+      "v-automax"
+    ],
+    "createdAt": "2026-10-15T10:48:41.682Z"
+  },
+  {
+    "_id": "gpu-cluster",
+    "title": "Enterprise NVIDIA H100 Cloud Cluster",
+    "subtitle": "64x H100 SXM5 Nodes (8-way HGX), InfiniBand, 1-Year Reserved Instance",
+    "category": "Cloud Infrastructure & AI",
+    "budgetCeiling": 170000,
+    "targetPrice": 145000,
+    "unit": "mo",
+    "termMonths": 12,
+    "requirements": [
+      "64x NVIDIA H100 SXM5 (80GB VRAM)",
+      "3.2 Tbps Quantum-2 InfiniBand non-blocking fabric",
+      "99.99% Hardware & Network Uptime SLA with 3x credit",
+      "Free or capped data egress (< $0.01/GB)",
+      "Net-45 or Net-60 Payment Terms"
+    ],
+    "vendorIds": [
+      "v-apex",
+      "v-nebula",
+      "v-hyperion",
+      "v-titan-spot"
+    ],
+    "createdAt": "2026-10-15T10:48:41.683Z"
+  },
+  {
+    "_id": "fleet-vehicles",
+    "title": "Commercial Fleet Lease (20x AWD Hybrid SUVs)",
+    "subtitle": "36-Month Closed-End Lease, 25k Miles/Year, Maintenance & Telematics Package",
+    "category": "Corporate Logistics & Mobility",
+    "budgetCeiling": 13200,
+    "targetPrice": 11500,
+    "unit": "mo",
+    "termMonths": 36,
+    "requirements": [
+      "20x 2026 AWD Hybrid Midsize SUVs",
+      "25,000 miles/year per vehicle allowance",
+      "Scheduled maintenance & roadside assistance included",
+      "Integrated GPS fleet telematics",
+      "Zero acquisition & disposition fees"
+    ],
+    "vendorIds": [
+      "v-summit",
+      "v-vanguard"
+    ],
+    "createdAt": "2026-10-15T10:48:41.683Z"
+  },
+  {
+    "_id": "cyber-soc",
+    "title": "Enterprise 24/7 Managed SOC & SIEM",
+    "subtitle": "1,500 Endpoints, Full Managed Detection & Response, 15-Minute Incident SLA",
+    "category": "Cybersecurity & Compliance",
+    "budgetCeiling": 82000,
+    "targetPrice": 68000,
+    "unit": "yr",
+    "termMonths": 12,
+    "requirements": [
+      "24/7/365 US-based Security Operations Center (SOC)",
+      "Under 15-minute mean time to acknowledge (MTTA) critical alerts",
+      "SIEM log retention for 365 days hot storage (HIPAA & SOC 2 compliant)",
+      "Quarterly purple-team penetration testing included",
+      "No data ingestion volume caps or overage penalization"
+    ],
+    "vendorIds": [
+      "v-aegis"
+    ],
+    "createdAt": "2026-10-15T10:48:41.683Z"
+  }
+]
